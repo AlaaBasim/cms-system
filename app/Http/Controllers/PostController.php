@@ -37,7 +37,7 @@ class PostController extends Controller
             'body'=>'required'
         ]);
         if(request('post_image')){
-            $inputs['post_image']= request('post_image')->store('images');
+            $inputs['post_image']= request('post_image')->store('public/images');
         }
         auth()->user()->posts()->create($inputs);
 
@@ -61,7 +61,7 @@ class PostController extends Controller
             'body'=>'required'
             ]);
             if(request('post_image')){
-                $inputs['post_image']= request('post_image')->store('images');
+                $inputs['post_image']= request('post_image')->store('public/images');
                 $post->post_image = $inputs['post_image'];
             }
             $post->title = $inputs['title'];
